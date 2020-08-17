@@ -149,7 +149,7 @@ vs-adc196b2eb542d38e13d6518c3bbeeca5f6ba6950c44bb18646b4a2fd9293c2c   [cf-system
 
 ### inspect-cf-app.sh
 
-Get detailed output of what was installed for the kapp "cf" and current status
+Get detailed output of what was installed for the kapp "**cf**" and current status
 
 Parameters:
 
