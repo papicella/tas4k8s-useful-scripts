@@ -1,10 +1,21 @@
 # Set of Scripts to view K8s resources on TAS4K8s
 
-## what-on-k8s-app-name.sh
+To use the following scripts you will need the following. These scripts are tested against MAC OSX only but should work on any linux distrubution.
+
+* TAS4K8s installed - [Download TAS4K8s!](https://network.pivotal.io/products/tas-for-kubernetes/)
+* kp CLI - [Download kp!](https://network.pivotal.io/products/build-service/)
+* kubectl CLI - [Download kubectl!](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* kapp (Kubernetes Application Management Tool) - [Download kapp!](https://get-kapp.io/)
+
+### what-on-k8s-app-name.sh
 
 The following example shows how to see what an app from "cf app {name}" looks like on K8s in terms of what is created for each "cf push" of an app instance.
 
-Usage Example
+Parameters:
+
+* application name: required
+
+Usage Example:
 
 ```bash
 $ ./what-on-k8s-app-name.sh my-go-app
@@ -34,9 +45,15 @@ NAME                                                 IMAGE                      
 aae5b272-600b-4e79-ac58-62685089e45d-build-1-57m2g   harbor.run.haas-236.pez.pivotal.io/tas-app-images/aae5b272-600b-4e79-ac58-62685089e45d@sha256:65ee3bd9d44fd830529080c34b8eb26addf18d8118f96c62500eccfb680e5d84   True
 ```
 
-## access-app-logs-from-istio-proxy-container.sh
+### access-app-logs-from-istio-proxy-container.sh
 
-Usage Example
+View the logs from the envoy proxy container that exists as part of the application pod
+
+Parameters:
+
+* application name: required
+  
+Usage Example:
 
 ```bash
 $ ./access-app-logs-from-istio-proxy-container.sh my-go-app
@@ -47,18 +64,30 @@ $ ./access-app-logs-from-istio-proxy-container.sh my-go-app
 
 ```
 
-## host-route-check-istio-ip.sh
+### host-route-check-istio-ip.sh
 
-Usage Example
+Check the IP address used for the ingress gateway is configured against the application route.
+
+Parameters:
+
+* application route: required
+  
+Usage Example:
 
 ```bash
 $ ./host-route-check-istio-ip.sh my-go-app.apps.system.run.haas-236.pez.pivotal.io
 my-go-app.apps.system.run.haas-236.pez.pivotal.io has address 10.195.75.155
 ```
 
-## logs-istio-ingressgateway.sh
+### logs-istio-ingressgateway.sh
 
-Usage Example
+Inspect the logs of the ingress gateway. 
+
+Parameters:
+
+* None
+  
+Usage Example:
 
 ```bash
 $ ./logs-istio-ingressgateway.sh
@@ -74,9 +103,15 @@ istio-ingressgateway-jv9w7 > ingress-sds | 2020-08-14T01:15:47.121538Z	info	moni
 ...
 ```
 
-## view-buildpacks.sh
+### view-buildpacks.sh
 
-Usage Example
+Viw the current buildpacks available as part of TAS4K8s. This requires "kp" CLI to be installed
+
+Parameters:
+
+* None
+  
+Usage Example:
 
 ```bash
 $ ./view-buildpacks.sh
@@ -92,7 +127,15 @@ paketo-buildpacks/nodejs         0.0.3
 paketo-buildpacks/procfile       1.3.8
 ```
 
-## istio-virtualservice.sh
+### istio-virtualservice.sh
+
+Inspect the cirtual services created for every application route which includes internal applications created as part of TAS4K8s installs
+
+Parameters:
+
+* None
+  
+Usage Example:
 
 ```bash
 $ ./istio-virtualservice.sh
