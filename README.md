@@ -183,5 +183,40 @@ Namespace             Name                                                      
 
 ```
 
+### view-api-resources-for-app.sh
+
+View all resources 
+
+Parameters:
+
+* application name: required
+  
+Usage Example:
+
+```bash
+$ ./view-api-resources-for-app.sh test-node-app
+
+Using application name: test-node-app
+Using application GUID as: 5eaa3aad-3c98-469e-bebb-41074e49244e
+
+*** This script can take some time to complete ***
+
+NAME                                               ENDPOINTS          AGE
+endpoints/s-7899e4a1-abbd-42d3-ae58-e8e2dc9c13c9   172.24.10.2:8080   3d18h
+NAME                                         READY   STATUS    RESTARTS   AGE
+pod/test-node-app-development-80a4f91cea-0   2/2     Running   0          3d18h
+NAME                                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/s-7899e4a1-abbd-42d3-ae58-e8e2dc9c13c9   ClusterIP   10.100.200.49   <none>        8080/TCP   3d18h
+NAME                                                                     CONTROLLER                                              REVISION   AGE
+controllerrevision.apps/test-node-app-development-80a4f91cea-65649f9fc   statefulset.apps/test-node-app-development-80a4f91cea   1          3d18h
+NAME                                                    READY   AGE
+statefulset.apps/test-node-app-development-80a4f91cea   1/1     3d18h
+NAME                                                               AGE
+podmetrics.metrics.k8s.io/test-node-app-development-80a4f91cea-0   0s
+
+...
+
+```
+
 <hr size="2" />
 Pas Apicella [pasa at vmware.com] is an Advisory Application Platform Architect at VMware APJ
