@@ -158,7 +158,7 @@ Parameters:
 Usage Example:
 
 ```bash
- ./inspect-cf-app.sh 
+ $ ./inspect-cf-app.sh 
 Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
 
 Resources in app 'cf'
