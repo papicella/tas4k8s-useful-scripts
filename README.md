@@ -2,9 +2,11 @@
 
 ## what-on-k8s-app-name.sh
 
+The following example shows how to see what an app from "cf app {name}" looks like on K8s in terms of what is created for each "cf push" of an app instance.
+
 Usage Example
 
-```
+```bash
 $ ./what-on-k8s-app-name.sh my-go-app
 
 Using application name: my-go-app
@@ -36,7 +38,7 @@ aae5b272-600b-4e79-ac58-62685089e45d-build-1-57m2g   harbor.run.haas-236.pez.piv
 
 Usage Example
 
-```
+```bash
 $ ./access-app-logs-from-istio-proxy-container.sh my-go-app
 2020-08-17T04:50:11.547181Z	info	Envoy proxy is ready
 [Envoy (Epoch 0)] [2020-08-17 04:58:44.849][13][warning][config] [bazel-out/k8-opt/bin/external/envoy/source/common/config/_virtual_includes/grpc_stream_lib/common/config/grpc_stream.h:91] gRPC config stream closed: 13,
@@ -49,7 +51,7 @@ $ ./access-app-logs-from-istio-proxy-container.sh my-go-app
 
 Usage Example
 
-```
+```bash
 $ ./host-route-check-istio-ip.sh my-go-app.apps.system.run.haas-236.pez.pivotal.io
 my-go-app.apps.system.run.haas-236.pez.pivotal.io has address 10.195.75.155
 ```
@@ -58,7 +60,7 @@ my-go-app.apps.system.run.haas-236.pez.pivotal.io has address 10.195.75.155
 
 Usage Example
 
-```
+```bash
 $ ./logs-istio-ingressgateway.sh
 Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
 
@@ -76,7 +78,7 @@ istio-ingressgateway-jv9w7 > ingress-sds | 2020-08-14T01:15:47.121538Z	info	moni
 
 Usage Example
 
-```
+```bash
 $ ./view-buildpacks.sh
 NAME                  READY
 cf-buildpack-store    True
