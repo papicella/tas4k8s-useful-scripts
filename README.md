@@ -92,5 +92,17 @@ paketo-buildpacks/nodejs         0.0.3
 paketo-buildpacks/procfile       1.3.8
 ```
 
+## istio-virtualservice.sh
+
+```bash
+$ ./istio-virtualservice.sh
+NAME                                                                  GATEWAYS                           HOSTS                                                     AGE
+vs-1e8791159d4b43f76e2196d00d30bde2d329d6a919328cd64f83d7584941e61e   [cf-system/istio-ingressgateway]   [search-server.system.run.haas-236.pez.pivotal.io]        3d4h
+vs-4be54d2fcd62bde980d0c841fb17961743cd0ee491a29088e46bc73f051bca5f   [cf-system/istio-ingressgateway]   [console.system.run.haas-236.pez.pivotal.io]              3d4h
+vs-5077e47207094e035908c0b73787ed6378a85fea84fdce364f53c7b3402d5c2b   [cf-system/istio-ingressgateway]   [invitations.system.run.haas-236.pez.pivotal.io]          3d4h
+vs-664570b0be12a3a6427ca40bf5630f58488580b0a4d117a5dcb9e85215255c5a   [cf-system/istio-ingressgateway]   [my-go-app.apps.system.run.haas-236.pez.pivotal.io]       161m
+vs-adc196b2eb542d38e13d6518c3bbeeca5f6ba6950c44bb18646b4a2fd9293c2c   [cf-system/istio-ingressgateway]   [test-node-app.apps.system.run.haas-236.pez.pivotal.io]   3d
+```
+
 <hr size="2" />
 Pas Apicella [pasa at vmware.com] is an Advisory Application Platform Architect at VMware APJ
