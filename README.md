@@ -9,7 +9,7 @@ To use the following scripts you will need the following. These scripts are test
 
 ### what-on-k8s-app-name.sh
 
-The following example shows how to see what an app from "cf app {name}" looks like on K8s in terms of what is created for each "cf push" of an app instance.
+The following example shows how to see what an app from "**cf app {name}**" looks like on K8s in terms of what is created for each "cf push" of an app instance.
 
 Parameters:
 
@@ -145,6 +145,42 @@ vs-4be54d2fcd62bde980d0c841fb17961743cd0ee491a29088e46bc73f051bca5f   [cf-system
 vs-5077e47207094e035908c0b73787ed6378a85fea84fdce364f53c7b3402d5c2b   [cf-system/istio-ingressgateway]   [invitations.system.run.haas-236.pez.pivotal.io]          3d4h
 vs-664570b0be12a3a6427ca40bf5630f58488580b0a4d117a5dcb9e85215255c5a   [cf-system/istio-ingressgateway]   [my-go-app.apps.system.run.haas-236.pez.pivotal.io]       161m
 vs-adc196b2eb542d38e13d6518c3bbeeca5f6ba6950c44bb18646b4a2fd9293c2c   [cf-system/istio-ingressgateway]   [test-node-app.apps.system.run.haas-236.pez.pivotal.io]   3d
+```
+
+### inspect-cf-app.sh
+
+Get detailed output of what was installed for the kapp "cf" and current status
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+ ./inspect-cf-app.sh 
+Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
+
+Resources in app 'cf'
+
+Namespace             Name                                                                 Kind                            Owner    Conds.  Rs  Ri         Age  
+(cluster)             adapters.config.istio.io                                             CustomResourceDefinition        kapp     2/2 t   ok  -          3d  
+^                     attributemanifests.config.istio.io                                   CustomResourceDefinition        kapp     2/2 t   ok  -          3d  
+^                     authorizationpolicies.security.istio.io                              CustomResourceDefinition        kapp     2/2 t   ok  -          3d  
+^                     build-service                                                        Namespace                       kapp     -       ok  -          3d  
+^                     build-service-webhook                                                MutatingWebhookConfiguration    kapp     -       ok  -          3d  
+^                     builders.build.pivotal.io                                            CustomResourceDefinition        kapp     2/2 t   ok  -          3d  
+^                     builds.build.pivotal.io                                              CustomResourceDefinition        kapp     2/2 t   ok  -          3d  
+^                     cf-api-controllers                                                   ClusterRole                     kapp     -       ok  -          3d  
+^                     cf-blobstore                                                         Namespace                       kapp     -       ok  -          3d  
+^                     cf-buildpack-store                                                   Store                           kapp     1/1 t   ok  -          3d  
+^                     cf-db                                                                Namespace                       kapp     -       ok  -          3d  
+^                     cf-system                                                            Namespace                       kapp     -       ok  -          3d  
+^                     cf-workloads                                                         Namespace                       kapp     -       ok  -          3d  
+^                     cf-workloads-app-psp                                                 PodSecurityPolicy               kapp     -       ok  -          3d  
+
+....
+
 ```
 
 <hr size="2" />

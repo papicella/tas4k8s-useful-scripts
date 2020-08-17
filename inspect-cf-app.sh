@@ -1,0 +1,1 @@
+kapp inspect --app cf
