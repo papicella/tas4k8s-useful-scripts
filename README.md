@@ -466,5 +466,75 @@ fluentd-g4t76 > istio-proxy | {"app_id":"-","x_b3_spanid":"-","process_type":"-"
 ...
 ```
 
+### check-tas4k8s-status.sh
+
+Check status of all PODS for TAS4K8s to ensure they are in a running state
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./check-tas4k8s-status.sh 
+NAME                                                  READY   STATUS      RESTARTS   AGE
+ccdb-migrate-gt62r                                    0/2     Completed   0          4d22h
+cf-api-clock-9f6bc7fc5-bzrkm                          2/2     Running     0          4d22h
+cf-api-controllers-6db7ddff9b-gr6lz                   2/2     Running     4          4d22h
+cf-api-deployment-updater-65c74c9bbb-528kv            2/2     Running     2          4d22h
+cf-api-server-789f8f6486-rvgvr                        5/5     Running     2          4d22h
+cf-api-server-789f8f6486-vmgnt                        5/5     Running     2          4d22h
+cf-api-worker-587dfb8c8d-s7xvc                        2/2     Running     0          4d22h
+deploy-apps-manager-rmnd4                             0/5     Completed   4          4d22h
+eirini-8b4869fb4-5rbdq                                2/2     Running     0          4d22h
+eirini-events-68dffd8c4b-4jqst                        2/2     Running     0          4d22h
+eirini-lrp-controller-686d669cc5-wxm5v                2/2     Running     0          4d22h
+eirini-task-reporter-5f45ccf8cd-xqf4v                 2/2     Running     0          4d22h
+fluentd-5gznn                                         2/2     Running     3          4d22h
+fluentd-g4t76                                         2/2     Running     4          4d22h
+fluentd-jm2gj                                         2/2     Running     4          4d22h
+fluentd-mj856                                         2/2     Running     4          4d22h
+fluentd-pt85k                                         2/2     Running     4          4d22h
+fluentd-rrv5q                                         2/2     Running     3          4d22h
+fluentd-vccfl                                         2/2     Running     4          4d22h
+log-cache-69677ddd4b-lzst5                            5/5     Running     2          4d22h
+metric-proxy-79f89f584b-c896j                         2/2     Running     0          4d22h
+routecontroller-957d57f8f-hcwjb                       2/2     Running     5          4d22h
+uaa-6555474dbb-rqx58                                  3/3     Running     0          4d22h
+usage-service-migrations-pxhm9                        0/2     Completed   0          4d22h
+usage-service-scheduler-deployment-6dcd4ff77f-gd2c2   2/2     Running     0          4d22h
+usage-service-server-deployment-859c8ffd67-c2q7g      2/2     Running     0          4d22h
+usage-service-server-deployment-859c8ffd67-cqsgm      2/2     Running     0          4d22h
+usage-service-worker-deployment-799cc4bf9b-q9gsc      2/2     Running     0          4d22h
+NAME                 READY   STATUS    RESTARTS   AGE
+cf-db-postgresql-0   2/2     Running   0          4d22h
+NAME                                  READY   STATUS    RESTARTS   AGE
+cf-blobstore-minio-6b546786c4-xv2tn   2/2     Running   0          4d22h
+NAME                                      READY   STATUS    RESTARTS   AGE
+istio-citadel-5f8975448d-69g9w            1/1     Running   0          4d22h
+istio-galley-759b8c779c-h4vj8             2/2     Running   0          4d22h
+istio-ingressgateway-5rnrx                2/2     Running   0          4d22h
+istio-ingressgateway-bdhcc                2/2     Running   0          4d22h
+istio-ingressgateway-bdrl7                2/2     Running   0          4d22h
+istio-ingressgateway-h2mxb                2/2     Running   0          4d22h
+istio-ingressgateway-jv9w7                2/2     Running   0          4d22h
+istio-ingressgateway-qfbsr                2/2     Running   0          4d22h
+istio-ingressgateway-xbrhr                2/2     Running   0          4d22h
+istio-pilot-9b7d94c5d-clnv6               2/2     Running   0          4d22h
+istio-policy-5cd794f879-4d7px             2/2     Running   2          4d22h
+istio-sidecar-injector-7d68d8c6f5-66sdk   1/1     Running   0          4d22h
+istio-telemetry-7577b4d75d-8lm8r          2/2     Running   2          4d22h
+NAME                             READY   STATUS    RESTARTS   AGE
+webhook-server-cd9564fbd-jcn2s   1/1     Running   0          4d22h
+NAME                                READY   STATUS    RESTARTS   AGE
+kpack-controller-5c4c4f9558-fsj5f   2/2     Running   3          4d22h
+kpack-webhook-b695cb9cf-ggjs6       2/2     Running   3          4d22h
+NAME                                                 READY   STATUS    RESTARTS   AGE
+inject-ca-certs-into-running-apps-7dbc7f5cfc-p44zq   1/1     Running   0          4d22h
+
+...
+```
+
 <hr size="2" />
 Pas Apicella [pasa at vmware.com] is an Advisory Application Platform Architect at VMware APJ
