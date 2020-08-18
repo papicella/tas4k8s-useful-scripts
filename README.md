@@ -413,7 +413,7 @@ log-cache-69677ddd4b-lzst5 > log-cache | TLS.CAPath              string         
 ...
 ```
 
-### all-log-cache-containers.sh
+### any-kapp-cf-system-component-logs.sh
 
 Inspect logs of all the containers in the log-cache pods
 
