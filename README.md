@@ -336,7 +336,7 @@ Parameters:
 Usage Example:
 
 ```bash
- ./uaa-logs.sh 
+$./uaa-logs.sh 
 [UAA] [2020-08-18 05:20:27.836] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: ClientAuthenticationSuccess ('Client authentication success'): principal=usage_service_client, origin=[remoteAddress=127.0.0.1, clientId=usage_service_client], identityZoneId=[uaa]
 [UAA_AUDIT] [2020-08-18 05:20:27.851] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: TokenIssuedEvent ('["cloud_controller.read","uaa.resource","cloud_controller.admin"]'): principal=usage_service_client, origin=[caller=usage_service_client, details=(remoteAddress=127.0.0.1, clientId=usage_service_client)], identityZoneId=[uaa]
 [UAA] [2020-08-18 05:20:27.851] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: TokenIssuedEvent ('["cloud_controller.read","uaa.resource","cloud_controller.admin"]'): principal=usage_service_client, origin=[caller=usage_service_client, details=(remoteAddress=127.0.0.1, clientId=usage_service_client)], identityZoneId=[uaa]
@@ -347,6 +347,43 @@ Usage Example:
 [ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:41 +0000] 0 0 3 - vcap_request_id:-
 [ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:43 +0000] 0 0 3 - vcap_request_id:-
 [ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:51 +0000] 0 0 3 - vcap_request_id:-
+
+...
+```
+
+### kpack-controller-logs.sh
+
+Inspect logs from the kpack-controller pods for namespace kpack
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./kpack-controller-logs.sh 
+{"level":"info","ts":"2020-08-18T05:18:13.395Z","logger":"controller","caller":"controller/controller.go:443","msg":"Reconcile succeeded. Time taken: 75.916µs","commit":"68925ea","knative.dev/traceid":"786662b6-a3bd-4f43-bb0b-d5849853b4f2","knative.dev/key":"cf-workloads-staging/75eab41b-2759-40d6-9e09-b826c4c49a6b-build-1-l496d"}
+{"level":"info","ts":"2020-08-18T05:18:13.396Z","logger":"controller","caller":"controller/controller.go:443","msg":"Reconcile succeeded. Time taken: 188.581µs","commit":"68925ea","knative.dev/traceid":"5c361b85-c6ad-4c98-8ddb-4cd035c70b0c","knative.dev/key":"cf-workloads-staging/5f1d01f1-d8ad-4692-a058-5ce6511e4587-build-2-mrptn"}
+{"level":"info","ts":"2020-08-18T05:18:13.396Z","logger":"controller","caller":"controller/controller.go:443","msg":"Reconcile succeeded. Time taken: 71.543µs","commit":"68925ea","knative.dev/traceid":"46f9ef94-4ce4-4279-a603-a5bacf173df5","knative.dev/key":"cf-workloads-staging/aae5b272-600b-4e79-ac58-62685089e45d-build-1-57m2g"}
+
+...
+```
+
+### kpack-webhook-logs.sh
+
+Inspect logs from the kpack-webhook pods for namespace kpack
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./kpack-webhook-logs.sh 
+{"level":"info","ts":"2020-08-17T19:18:17.675Z","logger":"webhook","caller":"controller/controller.go:443","msg":"Reconcile succeeded. Time taken: 60.15032ms","commit":"68925ea","knative.dev/traceid":"5e6d547d-c321-4d8e-be95-b63d02ad7a0c","knative.dev/key":"validation.webhook.kpack.pivotal.io"}
+{"level":"info","ts":"2020-08-18T05:18:17.612Z","logger":"webhook","caller":"defaulting/defaulting.go:185","msg":"Updating webhook","commit":"68925ea","knative.dev/traceid":"94cf9151-6ddf-4ee7-9926-56cf82ea457a","knative.dev/key":"defaults.webhook.kpack.pivotal.io"}
 
 ...
 ```
