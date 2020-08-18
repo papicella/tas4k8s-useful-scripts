@@ -6,8 +6,11 @@ To use the following scripts you will need the following. These scripts are test
 * kp CLI - [Download kp!](https://network.pivotal.io/products/build-service/)
 * kubectl CLI - [Download kubectl!](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * kapp (Kubernetes Application Management Tool) - [Download kapp!](https://get-kapp.io/)
+* CF CLI (Cloud Foundry CLI) - [Download kapp!](https://get-kapp.io/)
 
 ![alt tag](https://i.ibb.co/SKZdjmT/apps-man-tas4k8s.png)
+
+_All scripts will show output and exit if you wish to tail log output then you can use "-f" flag for kubectl and kapp commands in the scripts_
 
 ### what-on-k8s-app-name.sh
 
@@ -384,6 +387,28 @@ Usage Example:
 $ ./kpack-webhook-logs.sh 
 {"level":"info","ts":"2020-08-17T19:18:17.675Z","logger":"webhook","caller":"controller/controller.go:443","msg":"Reconcile succeeded. Time taken: 60.15032ms","commit":"68925ea","knative.dev/traceid":"5e6d547d-c321-4d8e-be95-b63d02ad7a0c","knative.dev/key":"validation.webhook.kpack.pivotal.io"}
 {"level":"info","ts":"2020-08-18T05:18:17.612Z","logger":"webhook","caller":"defaulting/defaulting.go:185","msg":"Updating webhook","commit":"68925ea","knative.dev/traceid":"94cf9151-6ddf-4ee7-9926-56cf82ea457a","knative.dev/key":"defaults.webhook.kpack.pivotal.io"}
+
+...
+```
+
+### all-log-cache-containers.sh
+
+Inspect logs of all the containers in the log-cache pods
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./all-log-cache-containers.sh 
+Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
+
+# starting tailing 'log-cache-69677ddd4b-lzst5 > cf-auth-proxy' logs
+# starting tailing 'log-cache-69677ddd4b-lzst5 > log-cache' logs
+log-cache-69677ddd4b-lzst5 > log-cache | Config.NodeAddrs        []string       NODE_ADDRS              false      []
+log-cache-69677ddd4b-lzst5 > log-cache | TLS.CAPath              string         CA_PATH                 true       /ca/tls.crt
 
 ...
 ```
