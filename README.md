@@ -413,5 +413,58 @@ log-cache-69677ddd4b-lzst5 > log-cache | TLS.CAPath              string         
 ...
 ```
 
+### all-log-cache-containers.sh
+
+Inspect logs of all the containers in the log-cache pods
+
+Parameters:
+
+* component name: required
+* optional parameters: optional
+  
+Usage Example: 
+
+```bash
+$ kubectl get pods -n cf-system
+NAME                                                  READY   STATUS      RESTARTS   AGE
+ccdb-migrate-gt62r                                    0/2     Completed   0          4d22h
+cf-api-clock-9f6bc7fc5-bzrkm                          2/2     Running     0          4d22h
+cf-api-controllers-6db7ddff9b-gr6lz                   2/2     Running     4          4d22h
+cf-api-deployment-updater-65c74c9bbb-528kv            2/2     Running     2          4d22h
+cf-api-server-789f8f6486-rvgvr                        5/5     Running     2          4d22h
+cf-api-server-789f8f6486-vmgnt                        5/5     Running     2          4d22h
+cf-api-worker-587dfb8c8d-s7xvc                        2/2     Running     0          4d22h
+deploy-apps-manager-rmnd4                             0/5     Completed   4          4d22h
+eirini-8b4869fb4-5rbdq                                2/2     Running     0          4d22h
+eirini-events-68dffd8c4b-4jqst                        2/2     Running     0          4d22h
+eirini-lrp-controller-686d669cc5-wxm5v                2/2     Running     0          4d22h
+eirini-task-reporter-5f45ccf8cd-xqf4v                 2/2     Running     0          4d22h
+fluentd-5gznn                                         2/2     Running     3          4d22h
+fluentd-g4t76                                         2/2     Running     4          4d22h
+fluentd-jm2gj                                         2/2     Running     4          4d22h
+fluentd-mj856                                         2/2     Running     4          4d22h
+fluentd-pt85k                                         2/2     Running     4          4d22h
+fluentd-rrv5q                                         2/2     Running     3          4d22h
+fluentd-vccfl                                         2/2     Running     4          4d22h
+log-cache-69677ddd4b-lzst5                            5/5     Running     2          4d22h
+metric-proxy-79f89f584b-c896j                         2/2     Running     0          4d22h
+routecontroller-957d57f8f-hcwjb                       2/2     Running     5          4d22h
+uaa-6555474dbb-rqx58                                  3/3     Running     0          4d22h
+usage-service-migrations-pxhm9                        0/2     Completed   0          4d22h
+usage-service-scheduler-deployment-6dcd4ff77f-gd2c2   2/2     Running     0          4d22h
+usage-service-server-deployment-859c8ffd67-c2q7g      2/2     Running     0          4d22h
+usage-service-server-deployment-859c8ffd67-cqsgm      2/2     Running     0          4d22h
+usage-service-worker-deployment-799cc4bf9b-q9gsc      2/2     Running     0          4d22h
+
+$ ./any-kapp-cf-system-component-logs.sh fluentd- -f
+Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
+
+# starting tailing 'fluentd-g4t76 > istio-proxy' logs
+fluentd-g4t76 > istio-proxy | [Envoy (Epoch 0)] [2020-08-18 23:32:50.996][13][warning][config] [bazel-out/k8-opt/bin/external/envoy/source/common/config/_virtual_includes/grpc_stream_lib/common/config/grpc_stream.h:91] gRPC config stream closed: 13, 
+fluentd-g4t76 > istio-proxy | {"app_id":"-","x_b3_spanid":"-","process_type":"-","x_b3_parentspanid":"-","space_id":"-","user_agent":"-","start_time":"2020-08-18T23:19:51.091Z","method":"-","request_id":"-","upstream_host":"172.24.17.23:8082","x_forwarded_for":"-","referer":"-","bytes_sent":"1896","response_duration":"-","upstream_cluster":"outbound|8082||log-cache-syslog.cf-system.svc.cluster.local","x_b3_traceid":"-","downstream_remote_address":"172.24.17.10:58258","x_forwarded_proto":"-","authority":"-","path":"-","protocol":"-","upstream_service_time":"-","upstream_local_address":"172.24.17.10:37648","duration":"780052","downstream_local_address":"10.100.200.85:8082","upstream_transport_failure_reason":"-","response_code":"0","response_flags":"-","response_tx_duration":"-","requested_server_name":"log-cache-syslog","bytes_received":"2620","organization_id":"-"}
+
+...
+```
+
 <hr size="2" />
 Pas Apicella [pasa at vmware.com] is an Advisory Application Platform Architect at VMware APJ
