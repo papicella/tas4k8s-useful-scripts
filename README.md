@@ -7,6 +7,8 @@ To use the following scripts you will need the following. These scripts are test
 * kubectl CLI - [Download kubectl!](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * kapp (Kubernetes Application Management Tool) - [Download kapp!](https://get-kapp.io/)
 
+![alt tag](https://i.ibb.co/SKZdjmT/apps-man-tas4k8s.png)
+
 ### what-on-k8s-app-name.sh
 
 The following example shows how to see what an app from "**cf app {name}**" looks like on K8s in terms of what is created for each "cf push" of an app instance.
