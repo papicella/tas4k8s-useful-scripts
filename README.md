@@ -218,5 +218,136 @@ podmetrics.metrics.k8s.io/test-node-app-development-80a4f91cea-0   0s
 
 ```
 
+### cf-api-server-logs.sh
+
+Inspect logs from the cf-api-server pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./cf-api-server-logs.sh 
+{"timestamp":"2020-08-18T05:13:26.497412807Z","message":"Started GET \"/v2/service_usage_events\" for user: usage_service_client, ip: 127.0.0.1 with vcap-request-id: 9baab644-95a9-4047-b006-7b8d10a2ad2e::1422266c-6695-4b75-b554-6c8ad4704e6f at 2020-08-18 05:13:26 UTC","log_level":"info","source":"cc.api","data":{"request_guid":"9baab644-95a9-4047-b006-7b8d10a2ad2e::1422266c-6695-4b75-b554-6c8ad4704e6f"},"thread_id":47334664681180,"fiber_id":47334690531200,"process_id":1,"file":"/cloud_controller_ng/middleware/request_logs.rb","lineno":28,"method":"call"}
+{"timestamp":"2020-08-18T05:13:26.502778656Z","message":"Completed 200 vcap-request-id: 9baab644-95a9-4047-b006-7b8d10a2ad2e::1422266c-6695-4b75-b554-6c8ad4704e6f","log_level":"info","source":"cc.api","data":{"request_guid":"9baab644-95a9-4047-b006-7b8d10a2ad2e::1422266c-6695-4b75-b554-6c8ad4704e6f"},"thread_id":47334664681180,"fiber_id":47334690531200,"process_id":1,"file":"/cloud_controller_ng/middleware/request_logs.rb","lineno":40,"method":"call"}
+
+...
+```
+
+### cf-api-deployment-updater-logs.sh
+
+Inspect logs from the cf-api-deployment-updater pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+ $ ./cf-api-deployment-updater-logs.sh
+{"timestamp":"2020-08-18T05:14:58.289558783Z","message":"Update loop took 0.01242199s","log_level":"info","source":"cc.deployment_updater.scheduler","data":{},"thread_id":47350767764980,"fiber_id":47350820702480,"process_id":1,"file":"/cloud_controller_ng/lib/cloud_controller/deployment_updater/scheduler.rb","lineno":50,"method":"update"}
+{"timestamp":"2020-08-18T05:14:58.289720885Z","message":"Sleeping 0.98757801s","log_level":"info","source":"cc.deployment_updater.scheduler","data":{},"thread_id":47350767764980,"fiber_id":47350820702480,"process_id":1,"file":"/cloud_controller_ng/lib/cloud_controller/deployment_updater/scheduler.rb","lineno":54,"method":"update"}
+{"timestamp":"2020-08-18T05:14:59.277803405Z","message":"run-deployment-update","log_level":"info","source":"cc.deployment_updater.update","data":{},"thread_id":47350767764980,"fiber_id":47350820702480,"process_id":1,"file":"/cloud_controller_ng/lib/cloud_controller/deployment_updater/dispatcher.rb","lineno":10,"method":"dispatch"}
+
+...
+```
+
+### cf-api-worker-logs.sh
+
+Inspect logs from the cf-api-worker pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./cf-api-worker-logs.sh
+{"timestamp":"2020-08-18T05:10:23.275826495Z","message":"about to run job VCAP::CloudController::Jobs::Runtime::PendingBuildCleanup","log_level":"info","source":"cc.background","data":{},"thread_id":47354019587580,"fiber_id
+":47354069220700,"process_id":1,"file":"/cloud_controller_ng/app/jobs/logging_context_job.rb","lineno":16,"method":"block in perform"}
+{"timestamp":"2020-08-18T05:10:23.279190110Z","message":"2020-08-18T05:10:23+0000: [Worker(cf-api-worker-587dfb8c8d-s7xvc)] Job VCAP::CloudController::Jobs::Runtime::PendingBuildCleanup (id=2472) (queue=pending_builds) COMP
+LETED after 0.0034","log_level":"info","source":"cc-worker","data":{},"thread_id":47354019587580,"fiber_id":47354069220700,"process_id":1,"file":"/usr/local/lib/ruby/gems/2.5.0/gems/delayed_job-4.1.8/lib/delayed/worker.rb",
+"lineno":285,"method":"say"}
+
+...
+```
+
+### eirini-logs-all-containers.sh
+
+Inspect logs from the eirini pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./eirini-logs-all-containers.sh 
+{"timestamp":"2020-08-18T05:15:51.014005200Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24633"}}
+{"timestamp":"2020-08-18T05:16:06.012922159Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24634"}}
+{"timestamp":"2020-08-18T05:16:21.012885700Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24635"}}
+{"timestamp":"2020-08-18T05:16:36.017085825Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24636"}}
+{"timestamp":"2020-08-18T05:16:51.013891708Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24637"}}
+{"timestamp":"2020-08-18T05:17:06.011956494Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24638"}}
+{"timestamp":"2020-08-18T05:17:21.019021522Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24639"}}
+{"timestamp":"2020-08-18T05:17:36.013446559Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24640"}}
+{"timestamp":"2020-08-18T05:17:51.013603822Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24641"}}
+{"timestamp":"2020-08-18T05:18:06.013220746Z","level":"debug","source":"handler","message":"handler.list-apps.requested","data":{"session":"24642"}}
+{"upstream_cluster":"inbound|8080|http|eirini.cf-system.svc.cluster.local","x_b3_traceid":"b8d103ba8f162ef50848a4e6a70f0ed8","downstream_remote_address":"172.24.17.18:56474","x_forwarded_proto":"http","authority":"eirini.cf-system.svc.cluster.local:8080","path":"/apps","protocol":"HTTP/1.1","upstream_service_time":"21","upstream_local_address":"-","duration":"21","downstream_local_address":"172.24.17.17:8080","upstream_transport_failure_reason":"-","response_code":"200","response_flags":"-","response_tx_duration":"0","requested_server_name":"outbound_.8080_._.eirini.cf-system.svc.cluster.local","bytes_received":"0","organization_id":"-","app_id":"-","x_b3_spanid":"d2770aea8321cf7a","process_type":"-","x_b3_parentspanid":"0848a4e6a70f0ed8","space_id":"-","user_agent":"HTTPClient/1.0 (2.8.3, ruby 2.5.5 (2019-03-15))","start_time":"2020-08-18T05:15:51.013Z","method":"GET","request_id":"d0ff8605-933b-43b0-b041-3f6fccbb2deb","upstream_host":"127.0.0.1:8080","x_forwarded_for":"-","referer":"-","bytes_sent":"1241","response_duration":"21"}
+
+...
+```
+
+### routecontroller-logs.sh
+
+Inspect logs from the routecontroller pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+$ ./routecontroller-logs.sh 
+2020-08-18T05:19:36.449Z        INFO    controllers.Route       Service cf-workloads/s-3114e912-09b4-4b14-802b-aa8eb52d17cb has been updated    {"route": "cf-workloads/aba82ec5-094e-44f5-a126-31ed75dc078c"}
+2020-08-18T05:19:36.457Z        INFO    controllers.Route       VirtualService cf-workloads/vs-1e8791159d4b43f76e2196d00d30bde2d329d6a919328cd64f83d7584941e61e has been updated        {"route": "cf-workloads/aba82ec5-094e-44f5-a126-31ed75dc078c"}
+2020-08-18T05:19:36.461Z        INFO    controllers.Route       Service cf-workloads/s-078598cb-c9e1-4034-b600-ee8287294b8a has been updated    {"route": "cf-workloads/5699e42f-5b1a-4f60-99e5-251d799babb0"}
+2020-08-18T05:19:36.467Z        INFO    controllers.Route       VirtualService cf-workloads/vs-5077e47207094e035908c0b73787ed6378a85fea84fdce364f53c7b3402d5c2b has been updated        {"route": "cf-workloads/5699e42f-5b1a-4f60-99e5-251d799babb0"}
+
+...
+```
+
+### uaa-logs.sh
+
+Inspect logs from the UAA pods for namespace cf-system
+
+Parameters:
+
+* None
+  
+Usage Example:
+
+```bash
+ ./uaa-logs.sh 
+[UAA] [2020-08-18 05:20:27.836] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: ClientAuthenticationSuccess ('Client authentication success'): principal=usage_service_client, origin=[remoteAddress=127.0.0.1, clientId=usage_service_client], identityZoneId=[uaa]
+[UAA_AUDIT] [2020-08-18 05:20:27.851] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: TokenIssuedEvent ('["cloud_controller.read","uaa.resource","cloud_controller.admin"]'): principal=usage_service_client, origin=[caller=usage_service_client, details=(remoteAddress=127.0.0.1, clientId=usage_service_client)], identityZoneId=[uaa]
+[UAA] [2020-08-18 05:20:27.851] uaa - 1 [http-nio-8080-exec-4] ....  INFO --- Audit: TokenIssuedEvent ('["cloud_controller.read","uaa.resource","cloud_controller.admin"]'): principal=usage_service_client, origin=[caller=usage_service_client, details=(remoteAddress=127.0.0.1, clientId=usage_service_client)], identityZoneId=[uaa]
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:27 +0000] 19 19 1589 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:27 +0000] 3 3 1309 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:28 +0000] 1 1 3 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:31 +0000] 0 0 3 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:41 +0000] 0 0 3 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:43 +0000] 0 0 3 - vcap_request_id:-
+[ACCESS] 127.0.0.1 - [18/Aug/2020:05:20:51 +0000] 0 0 3 - vcap_request_id:-
+
+...
+```
+
 <hr size="2" />
 Pas Apicella [pasa at vmware.com] is an Advisory Application Platform Architect at VMware APJ
