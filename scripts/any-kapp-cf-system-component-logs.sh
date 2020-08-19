@@ -4,4 +4,6 @@ if [ -z "$1" ]
     exit 1;
 fi
 
-kapp logs -a cf -m $1%
+component=$1; shift
+kapp logs -a cf -m $component% $@
+
