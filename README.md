@@ -1,4 +1,4 @@
-# Set of Scripts to view K8s resources on TAS4K8s
+# Set of scripts to view K8s resources on TAS4K8s
 
 To use the following scripts you will need the following. These scripts are tested against MAC OSX only but should work on any linux distrubution.
 
@@ -6,9 +6,30 @@ To use the following scripts you will need the following. These scripts are test
 * kp CLI - [Download kp!](https://network.pivotal.io/products/build-service/)
 * kubectl CLI - [Download kubectl!](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * kapp (Kubernetes Application Management Tool) - [Download kapp!](https://get-kapp.io/)
-* CF CLI (Cloud Foundry CLI) - [Download kapp!](https://get-kapp.io/)
+* CF CLI (Cloud Foundry CLI) - [Download CF CLI!](https://github.com/cloudfoundry/cli)
 
 ![alt tag](https://i.ibb.co/SKZdjmT/apps-man-tas4k8s.png)
+
+To check TAS4K8s is installed you can run a command as follows 
+
+```bash
+$ kapp list
+Target cluster 'https://strawberry.run.haas-236.pez.pivotal.io:8443' (nodes: ed8a7c50-0b02-4413-b76f-ac4d216f4557, 6+)
+
+Apps in namespace 'default'
+
+Name  Namespaces                                    Lcs   Lca
+cf    (cluster),build-service,cf-blobstore,cf-db,   true  4d
+      cf-system,cf-workloads,cf-workloads-staging,
+      istio-system,kpack,tas-system
+
+Lcs: Last Change Successful
+Lca: Last Change Age
+
+1 apps
+
+Succeeded
+```
 
 _All scripts will show output and exit if you wish to tail log output then you can use "-f" flag for kubectl and kapp commands in the scripts_
 
